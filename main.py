@@ -7,7 +7,6 @@ from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 
- 
 def generate_points(left_bound, right_bound, func):
     step = 0.005
     points = [[float(i), float(func(i))] for i in np.arange(left_bound, right_bound + step, step)]
@@ -22,12 +21,8 @@ class Plot(QObject):
  
     @pyqtSlot(float, float, str)
     def upd(self, left_bound, right_bound, func):
-        if func in ('cos'):
-            points = generate_points(left_bound, right_bound, math.cos)
-        if func == 'sin':
-            points = generate_points(left_bound, right_bound, math.sin)
-        if func == 'tan':
-            points = generate_points(left_bound, right_bound, math.tan)
+        if func in ('cos', 'sin', 'tan'):
+            points = generate_points(left_bound, right_bound, eval(f"math.{func}"))
         if func == 'sqrt':
             if left_bound >= 0:
                 points = generate_points(left_bound, right_bound, math.sqrt)
