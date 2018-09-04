@@ -2,10 +2,10 @@ import sys
 import math
 import numpy as np
 
-
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
+
 
 def generate_points(left_bound, right_bound, func):
     step = 0.005

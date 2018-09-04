@@ -100,7 +100,6 @@ ApplicationWindow {
 				if (func.currentText == 'sqrt' && left_bound.text < 0){
 				    warning.text = "Left bound must be >= 0"
 			    }
-				var magic_number = 22
                 if (points !== null && scaleFactor > 0){
 					var left_b = left_bound.text * 1.0
 					var right_b = right_bound.text * 1.0
